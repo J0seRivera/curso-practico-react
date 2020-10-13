@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { setFavorite, deleteFavorite } from '../actions';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import '../assets/styles/components/CarouselItem.scss';
 import playIcon from '../assets/static/play-icon.png';
 import plusIcon from '../assets/static/plus-icon.png';
@@ -24,7 +25,12 @@ const CarouselItem = (props) => {
         alt={title} />
       <div className="carousel-item__details">
         <div>
-          <img src={playIcon} alt="play icon" />
+          <Link to={`/player/${id}`}>
+            <img
+              src={playIcon}
+              alt="play icon"
+            />
+          </Link>
           {
             isList ?
               <img src={removeIcon} alt="remove icon" onClick={() => handleDeleteFavorite(id)} />
